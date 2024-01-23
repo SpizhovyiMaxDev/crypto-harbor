@@ -1,17 +1,11 @@
-import  { useState } from "react";
+import  { useState, useRef } from "react";
 
 function CryptoCurrency({ coin, setCart, cart }) {
     const [amount, setAmount] = useState(1)
-
+    const input = useRef(null);
     const hasCrypto = cart.find(c => c.name === coin.name);
 
-    const removeFromCart = () => setCart(cart.filter(c => c.name !== coin.name));
-
-
     function addCart(){
-        if(hasCrypto){
-            removeFromCart();
-        } else {
             const newCrypto = {
                 name:coin.name,
                 price: (+coin.price * amount).toFixed(2),
@@ -20,13 +14,12 @@ function CryptoCurrency({ coin, setCart, cart }) {
             }
         
             setCart(cards => [...cards, newCrypto]);
-        }
+            setAmount(1)
     }
 
     function handleEvent(e){
         if(e.target.value <= 0)return;
-        removeFromCart();
-        setAmount(e.target.value)
+        setAmount(e.target.value);
     }
 
     return (
@@ -52,14 +45,14 @@ function CryptoCurrency({ coin, setCart, cart }) {
 
             <li>
                 <button 
-                className={hasCrypto ? "btn-red" : "btn-purple"}
+                className="btn-purple"
                 onClick = {addCart}
                 >
-                  {hasCrypto ? "Remove" : "Add to Cart"}
+                  Add To Cart
                 </button>
             </li>
             <li>
-                <input type = "number" className="crypto-input" value={hasCrypto ? +hasCrypto.amount : amount} onChange={handleEvent}/> 
+                <input type = "number" className="crypto-input" value={amount} onChange={handleEvent} ref = {input}/> 
             </li>
 
         </ul>

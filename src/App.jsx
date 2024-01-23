@@ -10,13 +10,16 @@ import CryptoList from "./components/CryptoList";
 import Footer from "./components/Footer";
 import SideBar from "./components/SideBar";
 import useToLocalStorageState from "./hooks/useSetToLocalStorageState"
+import Modal from "./components/Modal";
 
 function App() {
   const [ query, setQuery ] = useState("");
   const [ cart, setCart ] = useToLocalStorageState("cart", []);
   const [ status, data ] = useCrypto();
   const [ openBar, setOpenBar ] = useState("");
-  const coins = data?.filter(coin => coin.name.toLowerCase().includes(query.toLowerCase()))
+  const [openModal, setOpenModal] = useState(false);
+  const coins = data?.filter(coin => coin.name.toLowerCase().includes(query.toLowerCase()));
+  const cacheAmount = cart.reduce((acc, val) => acc + val.amount, 0)
 
   function controlSideBar(){
     setOpenBar(str => str === "" ? "open" : "");
@@ -31,7 +34,8 @@ function App() {
              🛒 Shopping Cart
            </Button>
       </NavBar>
-      <SideBar openBar = {openBar} controlSideBar = {controlSideBar} cart = {cart} setCart = {setCart}/>
+      <Modal cacheAmount={cacheAmount} setCart={setCart} /> 
+      <SideBar openBar = {openBar} controlSideBar = {controlSideBar} cart = {cart} setCart = {setCart} cacheAmount = {cacheAmount}/>
       <Container>
             {status === "loading" && <p className = "loading">Loading...</p>}
             {status === "active" && <CryptoList coins = {coins} setCart = {setCart} cart = {cart}/>}
