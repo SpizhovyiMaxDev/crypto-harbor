@@ -1,6 +1,6 @@
 import Button from "./Button"
 
-function SideBar({ openBar, controlSideBar, cart, setCart, cacheAmount }) {
+function SideBar({ openBar, controlSideBar, cart, setCart, cacheAmount, setOpenModal }) {
     const removeFromCart = (index) => setCart(cart.filter((_, i) => i !== index));
 
     return (
@@ -8,7 +8,7 @@ function SideBar({ openBar, controlSideBar, cart, setCart, cacheAmount }) {
            <Button className={"btn-close"} handler = {controlSideBar}>Close Cart</Button>
            <h2>Shopping List</h2>
            <h3>
-            - Your total amount {cacheAmount} $
+            - Your total amount {cacheAmount > 0 ? cacheAmount.toFixed(2) : 0} $
            </h3>
             <div className="sidebar-content">
                 {
@@ -26,10 +26,10 @@ function SideBar({ openBar, controlSideBar, cart, setCart, cacheAmount }) {
                     })
                 }
               {cart.length !== 0 && 
-              <>
-              <Button className={"btn-green"}>Buy Crypto</Button>
+              <div className="btn-container">
+              <Button className={"btn-green"} handler = {() => setOpenModal(true)}>Buy Crypto</Button>
               <Button className={"btn-red"} handler={() => setCart([])}>Clear cart</Button>
-              </>
+              </div>
               }
               
             </div>

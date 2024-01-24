@@ -18,8 +18,8 @@ function App() {
   const [ status, data ] = useCrypto();
   const [ openBar, setOpenBar ] = useState("");
   const [openModal, setOpenModal] = useState(false);
-  const coins = data?.filter(coin => coin.name.toLowerCase().includes(query.toLowerCase()));
-  const cacheAmount = cart.reduce((acc, val) => acc + val.amount, 0)
+  const coins = data?.filter(coin => coin.name.toLowerCase().includes(query.trim().toLowerCase()));
+  const cacheAmount = cart.reduce((acc, val) => acc + +val.price, 0)
 
   function controlSideBar(){
     setOpenBar(str => str === "" ? "open" : "");
@@ -34,8 +34,8 @@ function App() {
              🛒 Shopping Cart
            </Button>
       </NavBar>
-      <Modal cacheAmount={cacheAmount} setCart={setCart} /> 
-      <SideBar openBar = {openBar} controlSideBar = {controlSideBar} cart = {cart} setCart = {setCart} cacheAmount = {cacheAmount}/>
+      <Modal cacheAmount={cacheAmount} setCart={setCart} openModal = {openModal} setOpenModal = {setOpenModal} cart = {cart}/> 
+      <SideBar openBar = {openBar} controlSideBar = {controlSideBar} cart = {cart} setCart = {setCart} cacheAmount = {cacheAmount} setOpenModal = {setOpenModal}/>
       <Container>
             {status === "loading" && <p className = "loading">Loading...</p>}
             {status === "active" && <CryptoList coins = {coins} setCart = {setCart} cart = {cart}/>}

@@ -1,25 +1,40 @@
-import  { useState, useRef } from "react";
+import  { useState } from "react";
 
 function CryptoCurrency({ coin, setCart, cart }) {
-    const [amount, setAmount] = useState(1)
-    const input = useRef(null);
-    const hasCrypto = cart.find(c => c.name === coin.name);
+    const [amount, setAmount] = useState(1);
 
-    function addCart(){
+    function addCart() {
+        if(amount === 0)return;
+
+        const updatedCart = [...cart];
+        const cryptoIndex = cart.findIndex(crypto => crypto.name === coin.name);
+
+        if(cryptoIndex === -1){
             const newCrypto = {
-                name:coin.name,
-                price: (+coin.price * amount).toFixed(2),
-                image:coin.iconUrl,
-                amount: amount,
-            }
-        
-            setCart(cards => [...cards, newCrypto]);
-            setAmount(1)
+                    name: coin.name,
+                    price: (+coin.price * amount).toFixed(2),
+                    image: coin.iconUrl,
+                    amount: amount,
+            };
+
+            updatedCart.push(newCrypto)
+        } else {
+            const updatedCrypto = updatedCart[cryptoIndex];
+            updatedCrypto.amount += amount;
+            updatedCrypto.price = (+coin.price * updatedCrypto.amount).toFixed(2)
+        }
+
+        setCart(updatedCart);
+        setAmount(1);
     }
+    
 
     function handleEvent(e){
-        if(e.target.value <= 0)return;
-        setAmount(e.target.value);
+        if(e.target.value >= 0 && e.target.value < 200){
+            setAmount(+e.target.value);
+        } else {
+            alert("Your numbers has to be bellow or equal 200")
+        }
     }
 
     return (
@@ -52,7 +67,7 @@ function CryptoCurrency({ coin, setCart, cart }) {
                 </button>
             </li>
             <li>
-                <input type = "number" className="crypto-input" value={amount} onChange={handleEvent} ref = {input}/> 
+                <input type = "number" className="crypto-input" value={amount} onChange={handleEvent} /> 
             </li>
 
         </ul>

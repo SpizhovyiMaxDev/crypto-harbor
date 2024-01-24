@@ -22,7 +22,7 @@ main{
 h2{
   color: #fefefe;
   font-size: 3.6rem;
-  margin: 2rem 1rem 0;
+  margin:2rem 8rem 0 0 ;
 }
 
 h3{
@@ -157,6 +157,24 @@ ul{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
+
+.sidebar-content{
+  padding:0 2rem;
+}
+
+.sidebar-items{
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:2rem;
+}
+
+.sidebar-items p {
+  font-size: 1.8rem;
+  color: #fefefe;
+}
+
 .open{
   right: 0;
 }
@@ -185,22 +203,6 @@ ul{
 .btn-close{
   font-size:1.8rem;
   padding: 1rem 1.5rem;
-}
-
-.sidebar-content{
-  padding:0 2rem;
-}
-
-.sidebar-items{
-  margin: 2rem 0;
-  display: flex;
-  align-items: center;
-  gap:2rem;
-}
-
-.sidebar-items p {
-  font-size: 1.8rem;
-  color: #fefefe;
 }
 
 /*------INPUT---------*/
@@ -239,6 +241,11 @@ input::placeholder {
   margin: 0 auto;
 }
 
+.btn-container{
+  display: flex;
+  gap:3rem;
+}
+
 /*-------STAGES--------*/
 
 .loading,
@@ -254,7 +261,7 @@ button {
   text-decoration: none;
   font-size: 1.6rem;
   color: #fff;
-  padding: 14px 28px;
+  padding: 1.4rem 2.8rem;
   display: inline-block;
   margin-right: 10px;
   border: none;
@@ -435,9 +442,21 @@ footer{
   color: #fefefe;
 }
 
+.purchased{
+  background: linear-gradient(45deg, #6b4dff, #764ba2);
+  color: #fefefe;
+  font-size: 3.6rem;
+  padding: 3rem 4rem;
+  border-radius: 20rem;
+}
+
 /*-------MEDIA QUERIES--------*/
 
 @media (max-width: 56em){
+  html{
+    font-size: 56%;
+  }
+
   nav{
     padding: 2.5rem;
     flex-direction: column;
@@ -471,6 +490,29 @@ footer{
 
   .container{
     max-width: 40rem;
+  }
+
+  .sidebar-icon{
+    width: 25px;
+    height: 25px;
+  }
+
+   .sidebar-items{
+     gap:1rem;
+   }
+
+  .sidebar-items p {
+      font-size: 1.2rem;
+  }
+
+  .btn-remove{
+     padding: 0.5rem 1rem;
+     font-size: 1.4rem;
+  }
+
+  button{
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
   }
 }
 
