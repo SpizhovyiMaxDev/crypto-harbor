@@ -22,7 +22,7 @@ main{
 h2{
   color: #fefefe;
   font-size: 3.6rem;
-  margin:2rem 8rem 0 0 ;
+  margin:2rem 4rem 0 0 ;
 }
 
 h3{
@@ -142,10 +142,9 @@ ul{
   }
 
 /*-------SIDEBAR--------*/
-
 .sidebar {
   padding: 2rem;
-  background: linear-gradient(45deg, #5837fc, #71548e);
+  background: linear-gradient(45deg, #5837fc, #7e629a);
   max-width: 60rem;
   height: 100vh;
   position: fixed;
@@ -413,9 +412,11 @@ footer{
 
 /*-------MODAL--------*/
 .modal{
+  padding: 2rem;
   width: 100%;
   height:100vh;
   background: #333;
+  text-align: center;
   position: absolute;
   top:0;
   left:0;
@@ -454,7 +455,12 @@ footer{
 
 @media (max-width: 56em){
   html{
-    font-size: 56%;
+    font-size: 58%;
+  }
+
+  .purchased{
+    font-size: 2.4rem;
+    padding: 1rem 2rem;
   }
 
   nav{

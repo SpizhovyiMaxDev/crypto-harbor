@@ -33,7 +33,7 @@ function CryptoCurrency({ coin, setCart, cart }) {
         if(e.target.value >= 0 && e.target.value <= 200){
             setAmount(+e.target.value);
         } else {
-            alert("Your numbers has to be bellow or equal 200")
+            alert("Your number should be bellow or equal 200")
         }
     }
 

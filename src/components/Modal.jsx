@@ -1,9 +1,6 @@
 import Button from "./Button";
 
 function Modal({ setCart, cacheAmount, openModal, setOpenModal, cart }){
-
-     
-
     return (
        <div className={`modal ${openModal === true ? "open-modal" : ""}`}> 
            {cart.length > 0 ?  
@@ -16,7 +13,7 @@ function Modal({ setCart, cacheAmount, openModal, setOpenModal, cart }){
             </div>
            </> :
            <>
-             <h4 className="purchased">Thank you a lot for the purchase! 🎉</h4>
+             <h4 className="purchased">Congratulations on your purchase 🎉</h4>
              <Button className={"btn-red"} handler = {() => setOpenModal(false)}>Go back</Button>
            </>
            }
