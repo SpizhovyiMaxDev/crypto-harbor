@@ -145,7 +145,7 @@ ul{
 
 .sidebar {
   padding: 2rem;
-  background-color: #111214;
+  background: linear-gradient(45deg, #5837fc, #71548e);
   max-width: 60rem;
   height: 100vh;
   position: fixed;
