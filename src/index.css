@@ -457,7 +457,7 @@ footer{
   }
 
   .modal h1{
-    font-size: 3.6rem;
+    font-size: 3.6clearrem;
   }
 
   .purchased{
@@ -506,10 +506,6 @@ footer{
      gap:1rem;
    }
 
-  .sidebar-items p {
-      font-size: 1.2rem;
-  }
-
   .btn-remove{
      padding: 0.5rem 1rem;
      font-size: 1.4rem;
@@ -520,6 +516,4 @@ footer{
     font-size: 1.4rem;
   }
 }
-
-
 
