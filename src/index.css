@@ -140,7 +140,7 @@ ul{
 
 /*-------SIDEBAR--------*/
 .sidebar {
-  padding: 2rem;
+  padding:2rem;
   background: linear-gradient(45deg, #5837fc, #7e629a);
   max-width: 60rem;
   height: 100vh;
@@ -240,6 +240,7 @@ input::placeholder {
 .btn-container{
   display: flex;
   gap:3rem;
+  margin-bottom: 10rem;
 }
 
 /*-------STAGES--------*/
@@ -453,6 +454,10 @@ footer{
 @media (max-width: 56em){
   html{
     font-size: 55%;
+  }
+
+  .modal h1{
+    font-size: 3.6rem;
   }
 
   .purchased{
