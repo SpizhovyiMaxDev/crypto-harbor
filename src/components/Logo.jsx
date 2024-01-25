@@ -1,5 +1,5 @@
 function Logo(){
-    return <a href = "#" className="logotype"><span className="logo-content">₿</span> CryptoHarbor</a>
+    return <p className="logotype"><span className="logo-content">₿</span> CryptoHarbor</p>
 }
 
 export default Logo;
