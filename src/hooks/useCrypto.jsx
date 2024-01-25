@@ -11,6 +11,8 @@ function reducer(state, action){
        return {status:"active", data:action.payload}
     case "error":
         return {...state, status:"error"}
+    default:
+      throw new Error("Action unknown")
    }
 }
 
