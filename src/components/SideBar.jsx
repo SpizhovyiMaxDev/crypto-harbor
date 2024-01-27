@@ -15,7 +15,7 @@ function SideBar({ openBar, controlSideBar, cart, setCart, cacheAmount, setOpenM
                     cart.map((coin, i) => {
 
                         return (
-                            <div className="sidebar-items">
+                            <div className="sidebar-item">
                                 <img src = {coin.image} alt = {coin.name} className="sidebar-icon"/>
                                 <p>{coin.name}</p>
                                 <p>${coin.price}</p> 
