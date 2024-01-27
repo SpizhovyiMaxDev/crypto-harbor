@@ -40,7 +40,7 @@ function App() {
             {status === "loading" && <p className = "loading">Loading...</p>}
             {status === "active" && <CryptoList coins = {coins} setCart = {setCart} cart = {cart}/>}
             {status === "error" && <p className="error">Somwthing went wrong...</p>}
-            {coins?.length === 0 && <p className="not-fuond">Current crypto doesn't exist...</p>}
+            {coins?.length === 0 && <p className="not-found">Current crypto doesn't exist...</p>}
       </Container>
       <Footer />
     </Main>
