@@ -2,7 +2,7 @@
 function Footer(){
     return (
         <footer> 
-             <p>&copy; Copyright by CryptoHarbor</p>
+             <p>Portfolio Max Spizhovyi</p>
         </footer>
     )
 }
